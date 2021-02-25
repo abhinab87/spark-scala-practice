@@ -24,7 +24,7 @@
     </repositories>
 
     <modules>
-        <module>spark-prac</module>
+        <module>spark-examples</module>
         <module>scala-prac</module>
     </modules>
 
