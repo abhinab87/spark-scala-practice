@@ -31,7 +31,7 @@ object App2 {
     var state = readJSON.filter(col("type").contains("count") or col("type").contains("median")).filter(!col("query").startsWith("\""))
     state = state.withColumn("suffix",when(col("type")==="count" ,lit("_gbCs_")).when(col("type")==="medianALL","_gbMsALL_").otherwise(lit("_gbMs_")))
 
-    println("***CONCATENATING QUERY AND SUFFIX***")
+    println("***CONCATENATING QUERY AND SUFFIX****")
     state = state.withColumn("query",concat(col("query"),lit(" "),col("suffix"))).repartition(5)
 
     state.show(false)
